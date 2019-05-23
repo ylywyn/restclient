@@ -189,6 +189,7 @@ func (r *RestClient) send() (responseItem ResponseItem) {
 
 	// send request
 	client := http.DefaultClient
+	client.Timeout = 10 * time.Second
 	start := time.Now()
 	response, err := client.Do(request)
 	duration := time.Now().Sub(start)
